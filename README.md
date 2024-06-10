@@ -4,7 +4,7 @@
 Create automated test scripts to verify the user journey and functionality of key elements on the AXA website using Cucumber, Playwright and TypeScript using Chrome browser. 
 
 ```console
-# AXA Website url
+# AXA Website URL
 https://smartservices.axaxl.com/
 ```
 ### Requirements: 
@@ -68,6 +68,11 @@ https://smartservices.axaxl.com/
 ## Task 2: Functional API Testing on Manage Notes API  
 Create automated test scripts to verify the Manage Notes API is working correctly using Cucumber, Playwright and TypeScript. 
 
+```console
+# API documentation URL
+ https://practice.expandtesting.com/notes/api/api-docs/#/ 
+```
+
 ### Requirements: 
 * The API should return a success response code (e.g., HTTP 200) upon receiving a valid request.
   
@@ -83,39 +88,39 @@ Create automated test scripts to verify the Manage Notes API is working correctl
 
 * 3. Get profile information correctly and validate: 
 
-  * **Check the response code to ensure it is a successful response (e.g., HTTP 200). 
+  * Check the response code to ensure it is a successful response (e.g., HTTP 200). 
 
-  * **Validate the response contain the correct email and name. 
+  * Validate the response contain the correct email and name. 
 
 * 4. Try Get profile information with invalid token and validate: 
 
- * **Check the response code (e.g., HTTP 401). 
+ * Check the response code (e.g., HTTP 401). 
 
- * **Validate the response contains an error message: Access token is not valid or has expired, you will need to login 
+ * Validate the response contains an error message: Access token is not valid or has expired, you will need to login 
 
 * 5. Create a new note and validate: 
 
-  * **Check the response code to ensure it is a successful response (e.g., HTTP 200). 
+  * Check the response code to ensure it is a successful response (e.g., HTTP 200). 
 
-  * **Validate the response contain message: Note successfully created 
+  * Validate the response contain message: Note successfully created 
 
-  * **Validate the response contain the correct title description and category 
+  * Validate the response contain the correct title description and category 
 
 * 6. Update an existing note and validate 
 
-  * **Check the response code to ensure it is a successful response (e.g., HTTP 200). 
+  * Check the response code to ensure it is a successful response (e.g., HTTP 200). 
 
-  * **Validate the response contain message: Note successfully Updated 
+  * Validate the response contain message: Note successfully Updated 
 
-  * **Validate the response contain the correct title description and category 
+  * Validate the response contain the correct title description and category 
 
 * 7. Get the note by id and validate  
 
-  * **Check the response code to ensure it is a successful response (e.g., HTTP 200). 
+  * Check the response code to ensure it is a successful response (e.g., HTTP 200). 
 
-  * **Validate the response contain message: Note successfully Updated 
+  * Validate the response contain message: Note successfully Updated 
 
-  * **Validate the response contain the correct id
+  * Validate the response contain the correct id
     
 ### Assessment Criteria: 
 
