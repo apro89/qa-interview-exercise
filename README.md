@@ -15,7 +15,7 @@
 
 ###  IDE Extensions
 * Playwright
-* Cucucmber
+* Cucumber
 
 ## Contributing
 
