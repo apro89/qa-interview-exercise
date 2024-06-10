@@ -3,8 +3,8 @@
 ## Task 1: Functional E2E Automation on AXA Website 
 Create automated test scripts to verify the user journey and functionality of key elements on the AXA website using Cucumber, Playwright and TypeScript using Chrome browser. 
 
+AXA Website URL
 ```console
-# AXA Website URL
 https://smartservices.axaxl.com/
 ```
 ### Requirements: 
@@ -17,35 +17,35 @@ https://smartservices.axaxl.com/
 
 ### Test Steps: 
 
-* 1. Navigate to the AXA website homepage 
+1. Navigate to the AXA website homepage 
 
-* 2. Accept the cookies 
+2. Accept the cookies 
 
-* 3. Click on the Services navigation menu 
+3. Click on the Services navigation menu 
 
-* 4. Click on Meet our Preferred Partners 
+4. Click on Meet our Preferred Partners 
 
-* 5. Apply the filter Computer Vision Hazard Detection on the solution type category 
+5. Apply the filter Computer Vision Hazard Detection on the solution type category 
 
-* 6. Check 2 result are displayed 
+6. Check 2 result are displayed 
 
-* 7. Click on reset filters 
+7. Click on reset filters 
 
-* 8. Enter on the search field “Genda$” 
+8. Enter on the search field “Genda$” 
 
-* 9. Check the “The search only allow A-Z a-z À-ÿ 0-9 and the special characters:-_'. Please enter a valid value on the search.” is displayed 
+9. Check the “The search only allow A-Z a-z À-ÿ 0-9 and the special characters:-_'. Please enter a valid value on the search.” is displayed 
 
-* 10. Clear the search field 
+10. Clear the search field 
 
-* 11. Enter on the search field “Genda” 
+11. Enter on the search field “Genda” 
 
-* 12. Click on the search button 
+12. Click on the search button 
 
-* 13. Click on read more of the “Genda” partner 
+13. Click on read more of the “Genda” partner 
 
-* 14. Check the form fields error validations (submit empty form, incorrect email, invalid character not supported on the fields: $%&”/()!><* ) 
+14. Check the form fields error validations (submit empty form, incorrect email, invalid character not supported on the fields: $%&”/()!><* ) 
 
-* 15. Fill in the form but do not submit it.
+15. Fill in the form but do not submit it.
       
 ### Additional Challenges: 
 
@@ -68,8 +68,8 @@ https://smartservices.axaxl.com/
 ## Task 2: Functional API Testing on Manage Notes API  
 Create automated test scripts to verify the Manage Notes API is working correctly using Cucumber, Playwright and TypeScript. 
 
+API documentation URL
 ```console
-# API documentation URL
  https://practice.expandtesting.com/notes/api/api-docs/#/ 
 ```
 
@@ -82,23 +82,23 @@ Create automated test scripts to verify the Manage Notes API is working correctl
   
 ### Test Steps: 
 
-* 1. Create new user account 
+1. Create new user account 
 
-* 2. Login as an existing user 
+2. Login as an existing user 
 
-* 3. Get profile information correctly and validate: 
+3. Get profile information correctly and validate: 
 
   * Check the response code to ensure it is a successful response (e.g., HTTP 200). 
 
   * Validate the response contain the correct email and name. 
 
-* 4. Try Get profile information with invalid token and validate: 
+4. Try Get profile information with invalid token and validate: 
 
- * Check the response code (e.g., HTTP 401). 
+  * Check the response code (e.g., HTTP 401). 
 
- * Validate the response contains an error message: Access token is not valid or has expired, you will need to login 
+  * Validate the response contains an error message: Access token is not valid or has expired, you will need to login 
 
-* 5. Create a new note and validate: 
+5. Create a new note and validate: 
 
   * Check the response code to ensure it is a successful response (e.g., HTTP 200). 
 
@@ -106,7 +106,7 @@ Create automated test scripts to verify the Manage Notes API is working correctl
 
   * Validate the response contain the correct title description and category 
 
-* 6. Update an existing note and validate 
+6. Update an existing note and validate 
 
   * Check the response code to ensure it is a successful response (e.g., HTTP 200). 
 
@@ -114,7 +114,7 @@ Create automated test scripts to verify the Manage Notes API is working correctl
 
   * Validate the response contain the correct title description and category 
 
-* 7. Get the note by id and validate  
+7. Get the note by id and validate  
 
   * Check the response code to ensure it is a successful response (e.g., HTTP 200). 
 
