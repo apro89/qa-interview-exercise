@@ -17,35 +17,24 @@ https://smartservices.axaxl.com/
 
 ### Test Steps: 
 
-1. Navigate to the AXA website homepage 
-
-2. Accept the cookies 
-
-3. Click on the Services navigation menu 
-
-4. Click on Meet our Preferred Partners 
-
-5. Apply the filter Computer Vision Hazard Detection on the solution type category 
-
-6. Check 2 result are displayed 
-
-7. Click on reset filters 
-
-8. Enter on the search field “Genda$” 
-
-9. Check the “The search only allow A-Z a-z À-ÿ 0-9 and the special characters:-_'. Please enter a valid value on the search.” is displayed 
-
-10. Clear the search field 
-
-11. Enter on the search field “Genda” 
-
-12. Click on the search button 
-
-13. Click on read more of the “Genda” partner 
-
-14. Check the form fields error validations (submit empty form, incorrect email, invalid character not supported on the fields: $%&”/()!><* ) 
-
-15. Fill in the form but do not submit it.
+1. Navigate to the AXA website homepage
+2. Accept the cookies
+3. Click on the Services navigation menu
+4. Click on Meet our Preferred Partners
+5. Apply the filter Computer Vision Hazard Detection on the solution type category
+6. Check that 2 result are displayed
+7. Click on "Reset All” to reset the filters
+8. Enter on the search field “Genda$”
+9. Check the message “The search only allow A-Z a-z À-ÿ 0-9 and the special characters:-_'. Please enter a valid value on the search.” is displayed
+10. Clear the search field
+11. Enter on the search field “Genda”
+12. Click on the search button
+13. Click on “Read more” link of the “Genda” partner
+14. Check the form fields error validations:
+  *  Submit an empty form and check all fields have an error message
+  *  Check message when the email has an incorrect format
+  *  Check invalid characters message on name and message fields (!”·$%&)  
+15. Fill in the form but do not submit it. 
       
 ### Additional Challenges: 
 
