@@ -1,0 +1,31 @@
+{
+    "name": "qa-interview-exercise",
+    "version": "1.0.0",
+    "description": "Automation Test",
+    "main": "cucumber.json",
+    "scripts": {
+      "lint": "eslint . --ext .ts",
+      "test": "cucumber-js --require cucumber.json --config=utils/config/cucumber.js -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
+      "posttest": "npx ts-node utils/report/reporter.ts",
+      "postinstall": "playwright install"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@cucumber/cucumber": "^10.6.0",
+      "@cucumber/pretty-formatter": "^1.0.1",
+      "@playwright/test": "^1.43.1",
+      "@types/node": "^20.12.8",
+      "@typescript-eslint/eslint-plugin": "7.8.0",
+      "@typescript-eslint/parser": "7.8.0",
+      "cucumber-html-reporter": "^6.0.0",
+      "eslint": "^8.55.0",
+      "ts-node": "^10.9.2",
+      "typescript": "^5.4.5",
+      "winston": "^3.8.2"
+    },
+    "dependencies": {
+      "playwright": "^1.43.1"
+    }
+  }

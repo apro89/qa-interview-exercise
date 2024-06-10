@@ -1,5 +1,15 @@
 # qa-interview-exercise
 
+## Contributing
+
+First of all, you need clone the repository
+
+### Installing dependencies
+Open the project on the Visua Studio Code  and go to terminal, from the root of the project execute the next command to install the dependecies:
+```console
+npm install
+```
+
 ## Task 1: Functional E2E Automation on AXA Website 
 Create automated test scripts to verify the user journey and functionality of key elements on the AXA website using Cucumber, Playwright and TypeScript using Chrome browser. 
 
@@ -33,7 +43,7 @@ https://smartservices.axaxl.com/
 
 8. Enter on the search field “Genda$” 
 
-9. Check the “The search only allow A-Z a-z À-ÿ 0-9 and the special characters:-_'. Please enter a valid value on the search.” is displayed 
+9. Check the erro message: “The search only allow A-Z a-z À-ÿ 0-9 and the special characters:-_'. Please enter a valid value on the search.” is displayed 
 
 10. Clear the search field 
 

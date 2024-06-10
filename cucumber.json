@@ -1,0 +1,22 @@
+{
+    "default": {
+      "tags": "@regression",
+      "dryRun": false,
+      "formatOptions": {
+        "snippetInterface": "async-await"
+      },
+      "paths": [
+        "./src/main/test/features/**/*.feature"
+      ],
+      "require": [
+        "./src/main/test/steps/**/*.ts", 
+        "./src/main/test/hooks/hooks.ts"
+      ],
+      "requireModule": [
+        "ts-node/register"
+      ],
+      "format": [],
+      "publishQuiet": false,
+      "parallel": 2
+    }
+  }
