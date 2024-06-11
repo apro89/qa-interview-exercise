@@ -50,8 +50,36 @@ Once you configure all the correct execution parameters you can execute the test
 
 From the root of the project
 ```console
-npm run test
+npm run testE2E
 ```
+## Running api tests
+By default the url configured is [Notes API](https://practice.expandtesting.com/notes/api), if you want change the URL you need:
 
+From the root of the project
+```console
+export BASE_URL_API ='environmetURL'
+```
+By default the test are launched in heandless mode true , if you want change this you need:
+
+From the root of the project
+```console
+export HEADLESS=false
+```
+By default the playwright traces and har are disable, if you want change this you need:
+
+From the root of the project
+```console
+export TRACE='true'
+export HAR='true'
+```
+Once you configure all the correct execution parameters you can execute the test with the next command:
+
+From the root of the project
+```console
+npm run testAPI
+```
 ### Test reports
-After the execution of the test the cucumber_report.html and cucumber_report.json resports are generated on the  `reports` folder
+After the execution of the test the  `cucumber_report.json` resports are generated on the `reports` folder, in order obtin the html report  on the same folder you should execute the next command:
+```console
+npm run report
+```

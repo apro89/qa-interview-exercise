@@ -1,8 +1,8 @@
-import { LaunchOptions, chromium, Browser, BrowserContext } from "@playwright/test";
+import { LaunchOptions, chromium, Browser, BrowserContext, APIRequestContext, request } from "@playwright/test";
 import { Before, After, BeforeAll, AfterAll, setDefaultTimeout } from '@cucumber/cucumber';
 import { createLogger } from "winston";
 import { loggerOptions } from "../utils/logger/logger";
-import { fixture } from "../utils/logger/fixture";
+import { fixture } from "../utils/fixture";
 
 const headlessMode: boolean = process.env.HEADLESS === 'true' || false;
 const trace: string = process.env.TRACE ?? 'false';
@@ -10,6 +10,7 @@ const har: string = process.env.HAR ?? 'false';
 
 let browser: Browser;
 let context: BrowserContext;
+let apiContext: APIRequestContext;
 
 // Launch options.
 const options: LaunchOptions = {
@@ -28,6 +29,9 @@ browser = await chromium.launch(options);
 
 // Before every scenario, Create new context and page
 Before(async function ({ pickle }) {
+  apiContext = await request.newContext({
+    baseURL: process.env.BASE_URL_API ?? 'https://practice.expandtesting.com/notes/api'
+  });
   const scenarioName: string = pickle.name + pickle.id;
   if (har !== 'undefined' && har === 'true') {
     context = await browser.newContext({
@@ -46,6 +50,8 @@ Before(async function ({ pickle }) {
     });
   }
   this.page = await context.newPage();
+  fixture.page = this.page;
+  fixture.api = apiContext;
   fixture.logger = createLogger(loggerOptions(scenarioName));
 });
 

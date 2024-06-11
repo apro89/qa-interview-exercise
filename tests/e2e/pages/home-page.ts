@@ -1,5 +1,4 @@
-import { Page } from "@playwright/test";
-import { fixture } from "../utils/logger/fixture";
+import { Page, expect } from "@playwright/test";
 export default class HomePage {
     readonly page: Page
 
@@ -9,8 +8,11 @@ export default class HomePage {
     }  
     async goto(url: string) {
         await this.page.goto(url)
-        await this.page.waitForTimeout(1000);
-        fixture.logger.error(`The "${url}" is opened`);
+        await this.page.waitForURL(url);
+    }
+
+    async assertHomePageIsOpened(url: string) {
+        expect(this.page.url()).toContain(url);
     }
 
 

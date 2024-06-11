@@ -10,7 +10,7 @@ const options: Options = {
   storeScreenshots: true,
   name: 'Automation Tests',
   scenarioTimestamp: false,
-  launchReport: false,
+  launchReport: true,
   metadata: {
     Browser: 'Chrome',
     'Test Environment': process.env.BASEURL ?? 'https://smartservices.axaxl.com/',

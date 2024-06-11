@@ -5,8 +5,9 @@
     "main": "cucumber.json",
     "scripts": {
       "lint": "eslint . --ext .ts",
-      "test": "cucumber-js --require cucumber.json --config=./cucumber.json -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
-      "posttest": "npx ts-node src/main/test/utils/report/reporter.ts",
+      "testE2E": "cucumber-js -p e2e --config=./cucumber.js -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
+      "testAPI": "HEADLESS=true cucumber-js -p api --config=./cucumber.js -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
+      "report": "npx ts-node tests/utils/report/reporter.ts",
       "postinstall": "playwright install"
     },
     "keywords": [],
