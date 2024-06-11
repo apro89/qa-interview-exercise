@@ -1,4 +1,4 @@
-@fontend @e2e
+@e2e
 Feature: Partners E2E test
     As a user
     I want to test

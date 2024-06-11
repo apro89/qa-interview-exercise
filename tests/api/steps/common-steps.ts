@@ -10,12 +10,12 @@ Given('The user execute a GET to the {string} endpoint', async function (endpoin
     fixture.logger.info(`The user execute a GET to the ${endpointName} endpoint`);
   });
 
-  Then('the response status code is {string} successful', async function (responseCode:string) {
+  Then('The response status code is {string} successful', async function (responseCode:string) {
     expect(String(this.response.status())).toEqual(responseCode);
     fixture.logger.info(`the response status code is ${responseCode} successful`);
   });
 
-  Then('the response message is {string}', async function (message:string) {
+  Then('The response message is {string}', async function (message:string) {
     expect(String(await this.response.body())).toContain(message);
     fixture.logger.info(`the response message is ${message}`);
   });
