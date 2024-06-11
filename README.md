@@ -79,7 +79,7 @@ From the root of the project
 npm run testAPI
 ```
 ### Test reports
-After the execution of the test the  `cucumber_report.json` resports are generated on the `reports` folder, in order obtin the html report  on the same folder you should execute the next command:
+After the execution of the test the  `cucumber_report.json` resports are generated on the `reports` folder, in order obtain the html report  on the same folder you should execute the next command:
 ```console
 npm run report
 ```
