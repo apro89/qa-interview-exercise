@@ -52,7 +52,6 @@ https://smartservices.axaxl.com/
 
 * Pushing the automation code to a GitHub repository. 
 
-* Creation of a comprehensive README file explaining the test scenarios, how to execute the test, including the libraries and dependencies used.
 
 ## Task 2: Functional API Testing on Manage Notes API  
 Create automated test scripts to verify the Manage Notes API is working correctly using Cucumber, Playwright and TypeScript. 
@@ -121,4 +120,3 @@ API documentation URL
 
 *  Pushing the automation code to a GitHub repository. 
 
-*  Creation of a comprehensive README file explaining the test scenarios, how to execute the test, including the libraries and dependencies used. 

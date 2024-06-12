@@ -59,12 +59,6 @@ From the root of the project
 ```console
 export BASE_URL_API ='environmetURL'
 ```
-By default the test are launched in heandless mode true , if you want change this you need:
-
-From the root of the project
-```console
-export HEADLESS=false
-```
 By default the playwright traces and har are disable, if you want change this you need:
 
 From the root of the project
