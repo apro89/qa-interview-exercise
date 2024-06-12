@@ -23,6 +23,9 @@ First of all, you need clone the repository
 
 ### Installing dependencies
 Open the project on the Visua Studio Code  and go to terminal, from the root of the project execute the next command to install the dependecies:
+=======
+
+API documentation URL
 ```console
 npm install
 ```
@@ -52,7 +55,7 @@ From the root of the project
 ```console
 npm run testE2E
 ```
-## Running api tests
+### Running api tests
 By default the url configured is [Notes API](https://practice.expandtesting.com/notes/api), if you want change the URL you need:
 
 From the root of the project
