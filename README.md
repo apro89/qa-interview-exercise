@@ -23,7 +23,6 @@ First of all, you need clone the repository
 
 ### Installing dependencies
 Open the project on the Visua Studio Code  and go to terminal, from the root of the project execute the next command to install the dependecies:
-=======
 
 API documentation URL
 ```console
