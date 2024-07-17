@@ -11,6 +11,10 @@ export default class BaseEndpoint {
     this.accessToken = "";
   }
 
+  getEndpoint() {
+    return this.endpoint;
+  }
+
   setEndpoint(endpoint: string) {
     this.endpoint = endpoint;
   }
@@ -63,6 +67,7 @@ export default class BaseEndpoint {
   async sendAuthenticatedGetRequest() {
     try {
       const apiRequest = fixture.api;
+
       const response = await apiRequest.get(`${this.baseUrl}${this.endpoint}`, {
         headers: {
           Accept: "application/json",

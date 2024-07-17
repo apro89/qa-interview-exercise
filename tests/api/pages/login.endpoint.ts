@@ -13,8 +13,7 @@ export default class LoginEndpoint extends BaseEndpoint {
     const user = new User(email, password);
     const response = await this.sendRequestWithBodyWithoutToken(user.toJSON());
     const responseBody: BaseResponse<UserResponse> = await response.json();
-    const { token } = responseBody.data;
-    this.setAccessToken(token);
+    this.setAccessToken(responseBody?.data?.token);
     return response;
   }
 }

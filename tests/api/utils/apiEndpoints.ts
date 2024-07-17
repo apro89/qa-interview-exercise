@@ -4,4 +4,5 @@ export default {
     login: "/users/login",
     profile: "/users/profile",
   },
+  notes: "/notes",
 };

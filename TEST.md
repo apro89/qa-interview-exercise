@@ -107,7 +107,7 @@ API documentation URL
 
   * Check the response code to ensure it is a successful response (e.g., HTTP 200). 
 
-  * Validate the response contain message: Note successfully Updated 
+  * Validate the response contain message: Note successfully retrieved 
 
   * Validate the response contain the correct id
     
