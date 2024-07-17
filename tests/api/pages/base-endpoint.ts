@@ -7,8 +7,8 @@ export default class BaseEndpoint {
 
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
-    this.endpoint = '';
-    this.accessToken = '';
+    this.endpoint = "";
+    this.accessToken = "";
   }
 
   setEndpoint(endpoint: string) {
@@ -25,17 +25,39 @@ export default class BaseEndpoint {
 
   async sendGetRequestWithoutToken() {
     try {
-      const apiRequest= fixture.api;
+      const apiRequest = fixture.api;
       const response = await apiRequest.get(`${this.baseUrl}${this.endpoint}`, {
         headers: {
-          'Accept': 'application/json'
-        }
+          Accept: "application/json",
+        },
       });
       return response;
     } catch (error) {
-      fixture.logger.info(`Error getting the "${this.endpoint}" `,error);
+      fixture.logger.info(`Error getting the "${this.endpoint}" `, error);
       throw error;
     }
   }
 
+  async sendRequestWithBodyWithoutToken<T>(body: T): Promise<any> {
+    try {
+      const requestCreateUser = fixture.api;
+
+      const response = await requestCreateUser.post(
+        `${this.baseUrl}${this.endpoint}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: body,
+        }
+      );
+      return response;
+    } catch (error) {
+      fixture.logger.info(
+        `Error post the "${this.endpoint}" with body ${body} `,
+        error
+      );
+      throw error;
+    }
+  }
 }

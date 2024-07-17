@@ -21,6 +21,7 @@ https://smartservices.axaxl.com/
 2. Accept the cookies
 3. Click on the Services navigation menu
 4. Click on Meet our Preferred Partners
+***********************************************************
 5. Apply the filter Computer Vision Hazard Detection on the solution type category
 6. Check that 2 result are displayed
 7. Click on "Reset All” to reset the filters
