@@ -4,6 +4,13 @@ export interface IUser {
   password: string;
 }
 
+export interface UserResponse {
+  id: string;
+  name: string;
+  email: string;
+  token: string;
+}
+
 export class User {
   private user: IUser;
   constructor(email: string, password: string, name?: string) {

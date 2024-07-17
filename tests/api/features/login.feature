@@ -1,4 +1,3 @@
-@api
 Feature: Login with as existing user
 
     Scenario: Login with an existing user is done successfully
