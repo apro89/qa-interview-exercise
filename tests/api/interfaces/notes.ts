@@ -4,6 +4,14 @@ export interface INote {
   category: NoteCategory;
 }
 
+export interface NoteResponse {
+  id: string;
+  title: string;
+  description: string;
+  category: NoteCategory;
+  completed: boolean;
+}
+
 export enum NoteCategory {
   HOME = "Home",
   WORK = "Work",

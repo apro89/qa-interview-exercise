@@ -8,5 +8,6 @@ export default {
     create: "create-note",
     get: "get-all-notes",
     getById: "get-note-by-id",
+    update: "update-note",
   },
 };

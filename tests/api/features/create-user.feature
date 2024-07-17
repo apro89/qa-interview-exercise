@@ -1,4 +1,4 @@
-
+@api
 Feature: Create new user
 
     Scenario: New user is created successfully

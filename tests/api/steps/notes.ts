@@ -3,7 +3,8 @@ import { getEndpoint } from "../common/endpoint";
 import { expect } from "playwright/test";
 import { fixture } from "../../utils/fixture";
 import apiNames from "../utils/apiNames";
-import { Note, NoteCategory } from "../interfaces/notes";
+import { INote, Note, NoteCategory, NoteResponse } from "../interfaces/notes";
+import { BaseResponse } from "../interfaces/util";
 
 When(
   "The user creates a new note with title {string}, description {string}, and category {string}",
@@ -60,3 +61,27 @@ Then("The response contains the note with correct ID", async function () {
     `The response contains the note with ID "${this.noteId}"`
   );
 });
+
+When(
+  "The user updates the first note with title {string}, description {string}, and category {string}",
+  async function (title: string, description: string, category: string) {
+    const responseBody: BaseResponse<NoteResponse> = await this.response.json();
+
+    const updateData: NoteResponse = {
+      ...responseBody.data,
+      title,
+      description,
+      category:
+        NoteCategory[category.toUpperCase() as keyof typeof NoteCategory],
+    };
+    const token = this.endpoint.getAccessToken();
+    this.endpoint = getEndpoint(apiNames.notes.update);
+    this.endpoint.setEndpoint(`${this.endpoint.getEndpoint()}/${this.noteId}`);
+    this.endpoint.setAccessToken(token);
+
+    this.response = await this.endpoint.sendAuthenticatedPutRequest(updateData);
+    fixture.logger.info(
+      `The user updated the note with ID "${this.noteId}", title "${title}", description "${description}", and category "${category}"`
+    );
+  }
+);

@@ -18,7 +18,8 @@ function getEndpoint(name: string) {
   } else if (
     name === apiNames.notes.create ||
     name === apiNames.notes.get ||
-    name === apiNames.notes.getById
+    name === apiNames.notes.getById ||
+    name === apiNames.notes.update
   ) {
     return new NotesEndpoint(baseUrl);
   } else {

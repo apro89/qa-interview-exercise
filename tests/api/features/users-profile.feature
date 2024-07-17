@@ -1,3 +1,4 @@
+@api
 Feature: Retrieve and validate user profile information
 
     Scenario: Get profile information correctly

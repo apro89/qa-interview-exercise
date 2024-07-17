@@ -107,4 +107,25 @@ export default class BaseEndpoint {
       throw error;
     }
   }
+
+  async sendAuthenticatedPutRequest<T>(body: T): Promise<any> {
+    try {
+      const apiRequest = fixture.api;
+      const response = await apiRequest.put(`${this.baseUrl}${this.endpoint}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "X-Auth-Token": this.accessToken,
+        },
+        data: body,
+      });
+
+      return response;
+    } catch (error) {
+      fixture.logger.info(
+        `Error authenticated put the "${this.endpoint}" with body ${body} `,
+        error
+      );
+      throw error;
+    }
+  }
 }
