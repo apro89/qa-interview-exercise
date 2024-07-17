@@ -1,4 +1,3 @@
-@api
 Feature: E2E test manage notes
 
     @testExample2

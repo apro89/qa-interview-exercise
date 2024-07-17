@@ -6,9 +6,9 @@ export interface IUser {
 
 export class User {
   private user: IUser;
-  constructor(name: string, email: string, password: string) {
+  constructor(email: string, password: string, name?: string) {
     this.user = {
-      name,
+      name: name || "",
       email,
       password,
     };

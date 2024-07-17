@@ -10,7 +10,7 @@ Given(
   async function (name: string, password: string) {
     this.endpoint = getEndpoint(apiNames.user.create);
     const uniqueEmail = `bob_${uuidv4()}@gmail.com`; // Generate a unique email using UUID
-    const user = new User(name, uniqueEmail, password);
+    const user = new User(uniqueEmail, password, name);
 
     this.response = await this.endpoint.sendRequestWithBodyWithoutToken(
       user.toJSON()
@@ -27,7 +27,7 @@ Given(
   "The user executes a POST to create a user with name {string}, email {string}, password {string}",
   async function (name: string, email: string, password: string) {
     this.endpoint = getEndpoint(apiNames.user.create);
-    const user = new User(name, email, password);
+    const user = new User(email, password, name);
 
     this.response = await this.endpoint.sendRequestWithBodyWithoutToken(
       user.toJSON()
