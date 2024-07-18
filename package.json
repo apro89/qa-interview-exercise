@@ -4,29 +4,32 @@
     "description": "Automation Test",
     "main": "cucumber.json",
     "scripts": {
-      "lint": "eslint . --ext .ts",
-      "testE2E": "cucumber-js -p e2e --config=./cucumber.js -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
-      "testAPI": "cucumber-js -p api --config=./cucumber.js -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
-      "report": "npx ts-node tests/utils/report/reporter.ts",
-      "postinstall": "playwright install"
+        "lint": "eslint . --ext .ts",
+        "testE2E:chromium": "cross-env BROWSER=chromium cucumber-js -p e2e --config=./cucumber.js -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
+        "testE2E:firefox": "cross-env BROWSER=firefox cucumber-js -p e2e --config=./cucumber.js -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
+        "testE2E:webkit": "cross-env BROWSER=webkit cucumber-js -p e2e --config=./cucumber.js -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
+        "testAPI": "cucumber-js -p api --config=./cucumber.js -f json:reports/cucumber_report.json --format summary --format @cucumber/pretty-formatter || true",
+        "report": "npx ts-node tests/utils/report/reporter.ts",
+        "postinstall": "playwright install"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
-      "@cucumber/cucumber": "^10.6.0",
-      "@cucumber/pretty-formatter": "^1.0.1",
-      "@playwright/test": "^1.43.1",
-      "@types/node": "^20.12.8",
-      "@typescript-eslint/eslint-plugin": "7.8.0",
-      "@typescript-eslint/parser": "7.8.0",
-      "cucumber-html-reporter": "^6.0.0",
-      "eslint": "^8.55.0",
-      "ts-node": "^10.9.2",
-      "typescript": "^5.4.5",
-      "winston": "^3.8.2"
+        "@cucumber/cucumber": "^10.6.0",
+        "@cucumber/pretty-formatter": "^1.0.1",
+        "@playwright/test": "^1.43.1",
+        "@types/node": "^20.12.8",
+        "@typescript-eslint/eslint-plugin": "7.8.0",
+        "@typescript-eslint/parser": "7.8.0",
+        "cross-env": "^7.0.3",
+        "cucumber-html-reporter": "^6.0.0",
+        "eslint": "^8.55.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.4.5",
+        "winston": "^3.8.2"
     },
     "dependencies": {
-      "playwright": "^1.43.1"
+        "playwright": "^1.43.1"
     }
-  }
+}

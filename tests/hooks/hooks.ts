@@ -1,12 +1,28 @@
-import { LaunchOptions, chromium, Browser, BrowserContext, APIRequestContext, request } from "@playwright/test";
-import { Before, After, BeforeAll, AfterAll, setDefaultTimeout } from '@cucumber/cucumber';
+import {
+  LaunchOptions,
+  chromium,
+  Browser,
+  BrowserContext,
+  APIRequestContext,
+  request,
+  firefox,
+  webkit,
+} from "@playwright/test";
+import {
+  Before,
+  After,
+  BeforeAll,
+  AfterAll,
+  setDefaultTimeout,
+} from "@cucumber/cucumber";
 import { createLogger } from "winston";
 import { loggerOptions } from "../utils/logger/logger";
 import { fixture } from "../utils/fixture";
 
-const headlessMode: boolean = process.env.HEADLESS === 'true' || false;
-const trace: string = process.env.TRACE ?? 'false';
-const har: string = process.env.HAR ?? 'false';
+const headlessMode: boolean = process.env.HEADLESS === "true" || false;
+const trace: string = process.env.TRACE ?? "false";
+const har: string = process.env.HAR ?? "false";
+const browserType: string = process.env.BROWSER ?? "chromium";
 
 let browser: Browser;
 let context: BrowserContext;
@@ -15,38 +31,49 @@ let apiContext: APIRequestContext;
 // Launch options.
 const options: LaunchOptions = {
   headless: headlessMode,
-  slowMo: 100
+  slowMo: 100,
 };
 
 setDefaultTimeout(60 * 10000);
 
-
-
 // To launch the browser before all the scenarios
 BeforeAll(async function () {
-browser = await chromium.launch(options);
+  switch (browserType) {
+    case "firefox":
+      browser = await firefox.launch(options);
+      break;
+    case "webkit":
+      browser = await webkit.launch(options);
+      break;
+    case "chromium":
+    default:
+      browser = await chromium.launch(options);
+      break;
+  }
 });
 
 // Before every scenario, Create new context and page
 Before(async function ({ pickle }) {
   apiContext = await request.newContext({
-    baseURL: process.env.BASE_URL_API ?? 'https://practice.expandtesting.com/notes/api'
+    baseURL:
+      process.env.BASE_URL_API ??
+      "https://practice.expandtesting.com/notes/api",
   });
   const scenarioName: string = pickle.name + pickle.id;
-  if (har !== 'undefined' && har === 'true') {
+  if (har !== "undefined" && har === "true") {
     context = await browser.newContext({
-      recordHar: { path: './reports/har/' + scenarioName + '.har' }
+      recordHar: { path: "./reports/har/" + scenarioName + ".har" },
     });
   } else {
     context = await browser.newContext();
   }
-  if (trace !== 'undefined' && trace === 'true') {
+  if (trace !== "undefined" && trace === "true") {
     await context.tracing.start({
       name: scenarioName,
       title: pickle.name,
       sources: true,
       screenshots: true,
-      snapshots: true
+      snapshots: true,
     });
   }
   this.page = await context.newPage();
@@ -57,21 +84,21 @@ Before(async function ({ pickle }) {
 
 // After every scenario, Close context and page
 After(async function ({ pickle, result }) {
-  const path: string = './reports/trace/' + pickle.id + '.zip';
-  if (result?.status !== 'PASSED') {
+  const path: string = "./reports/trace/" + pickle.id + ".zip";
+  if (result?.status !== "PASSED") {
     const image: Buffer = await this.page.screenshot({
-      path: './reports/screenshots/' + pickle.name + '.png',
-      type: 'png'
+      path: "./reports/screenshots/" + pickle.name + ".png",
+      type: "png",
     });
     // Assuming this.attach is a valid method in your context
-    this.attach(image, 'image/png');
+    this.attach(image, "image/png");
   }
-  if (trace !== 'undefined' && trace === 'true') {
-    console.log('the trace is', trace);
+  if (trace !== "undefined" && trace === "true") {
+    console.log("the trace is", trace);
     await context.tracing.stop({ path: path });
     const traceFileLink: string = `<a href="https://trace.playwright.dev/">Open ${path}</a>`;
     // Assuming this.attach is a valid method in your context
-    this.attach(`Trace file: ${traceFileLink}`, 'text/html');
+    this.attach(`Trace file: ${traceFileLink}`, "text/html");
   }
   await this.page.close();
   await context.close();
